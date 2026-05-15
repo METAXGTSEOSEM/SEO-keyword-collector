@@ -1,7 +1,7 @@
 [project]
 name = "seo-keyword-collector"
 version = "0.1.0"
-description = "Add your description here"
+description = "Industrial B2B Multi-Channel SEO Keyword Collection System"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
