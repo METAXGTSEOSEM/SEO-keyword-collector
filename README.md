@@ -304,12 +304,3 @@ GOOGLE_ADS_CUSTOMER_ID=123-456-7890
 5. **Alibaba / Made-in-China**：这两个平台 HTML 结构会变化，如采集结果为空属正常，可通过更新 CSS 选择器适配
 
 ---
-
-## 🔄 后续更新代码
-
-```powershell
-# 修改代码后，提交并推送到 GitHub
-git add .
-git commit -m "feat: 描述你的改动"
-git push
-```
