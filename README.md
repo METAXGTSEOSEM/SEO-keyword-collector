@@ -40,7 +40,7 @@ seo-keyword-collector/
 │   └── summary_exporter.py      # TXT 摘要报告
 │
 ├── output/                      # 输出目录（运行后自动生成）
-│   ├── hydraulic-cargo-lift/    # 每个词根单独子目录
+│   ├── your-product-keyword/    # 每个词根单独子目录（以词根命名）
 │   │   ├── keywords_raw.csv
 │   │   ├── keywords_clean.csv
 │   │   ├── keyword_clusters.csv
@@ -185,45 +185,45 @@ python main.py
 请输入产品词根，可多个，一行一个或用逗号分隔。
 输入完成后，空行回车继续。
 
->>> hydraulic cargo lift
->>> freight elevator
->>> scissor lift
+>>> [your product keyword 1]
+>>> [your product keyword 2]
+>>> [your product keyword 3]
 >>> （空行回车）
 
 ✅ 已接收 3 个词根:
-   · hydraulic cargo lift
-   · freight elevator
-   · scissor lift
+   · [your product keyword 1]
+   · [your product keyword 2]
+   · [your product keyword 3]
 
 ════════════════════════════════════════════════════════════
-  [1/3] 处理词根: hydraulic cargo lift
+  [1/3] 处理词根: [your product keyword 1]
 ════════════════════════════════════════════════════════════
 
 🌐 开始多渠道采集...
-  [1/9] 🔍 正在采集: google_suggest ... ✓ 234 条
-  [2/9] 🔍 正在采集: bing_suggest ...   ✓ 187 条
-  [3/9] 🔍 正在采集: youtube_suggest .. ✓ 56 条
-  [4/9] 🔍 正在采集: amazon_suggest ...  ✓ 44 条
-  [5/9] 🔍 正在采集: alibaba_suggest ..  ✓ 89 条
-  [6/9] 🔍 正在采集: madeinchina ...    ✓ 112 条
-  [7/9] 🔍 正在采集: reddit ...         ✓ 38 条
-  [8/9] 🔍 正在采集: competitor ...     ✓ 67 条
-  [9/9] 🔍 正在采集: google_trends ...  ✓ 25 条
+  [1/9] 🔍 正在采集: google_suggest ... ✓ 200+ 条
+  [2/9] 🔍 正在采集: bing_suggest ...   ✓ 150+ 条
+  [3/9] 🔍 正在采集: youtube_suggest .. ✓ 50+ 条
+  [4/9] 🔍 正在采集: amazon_suggest ...  ✓ 40+ 条
+  [5/9] 🔍 正在采集: alibaba_suggest ..  ✓ 80+ 条
+  [6/9] 🔍 正在采集: madeinchina ...    ✓ 100+ 条
+  [7/9] 🔍 正在采集: reddit ...         ✓ 30+ 条
+  [8/9] 🔍 正在采集: competitor ...     ✓ 60+ 条
+  [9/9] 🔍 正在采集: google_trends ...  ✓ 20+ 条
 
-  → 采集完成，原始记录: 852 条
+  → 采集完成，原始记录: 700~1000 条（因词根而异）
 
 📊 开始分析流水线...
-  [1/5] 清洗关键词... ✓ 412 条（清除 440 条）
+  [1/5] 清洗关键词... ✓ 去重后保留约 400 条
   [2/5] 关键词分类... ✓
   [3/5] 搜索意图分析... ✓
   [4/5] 页面类型推荐... ✓
-  [5/5] NLP 聚类分析... ✓ 20 个聚类
+  [5/5] NLP 聚类分析... ✓ 约 20 个聚类
 
 💾 导出文件...
-  ✓ 词根 'hydraulic cargo lift' 处理完成
-  📁 输出目录: output/hydraulic-cargo-lift/
+  ✓ 词根处理完成
+  📁 输出目录: output/your-product-keyword-1/
 
-🎉 全部完成！总耗时: 142.3 秒
+🎉 全部完成！总耗时: 约 100~200 秒
 ```
 
 ---
@@ -251,21 +251,21 @@ python main.py
 
 ## 🔑 关键词分类（13 种）
 
-| 类型 | 说明 | 示例 |
+| 类型 | 说明 | 示例格式 |
 |------|------|------|
-| Core Product Keyword | 核心产品词 | `hydraulic cargo lift` |
-| Supplier / Factory / Manufacturer Keyword | 供应商/工厂/制造商词 | `cargo lift manufacturer china` |
-| Custom / OEM / ODM Keyword | 定制/OEM/ODM 词 | `custom hydraulic lift oem` |
-| Specification Keyword | 规格参数词 | `2000kg capacity hydraulic lift` |
-| Application Keyword | 应用场景词 | `cargo lift for warehouse` |
-| Industry Keyword | 行业词 | `logistics material handling` |
-| Industrial Keyword | 工业通用词 | `heavy duty industrial lift` |
-| Problem Solving Keyword | 问题解决词 | `how to install a cargo lift` |
-| Certification Keyword | 认证词 | `ce certified hydraulic lift` |
-| Brand Keyword | 品牌词 | `toyota forklift` |
-| Competitor Keyword | 竞品词 | `scissor lift vs cargo lift` |
-| Long Tail Keyword | 长尾词 | `2 ton hydraulic cargo lift price china` |
-| Low Intent / Negative Keyword | 低意图/负向词 | `used cargo lift rental` |
+| Core Product Keyword | 核心产品词 | `[产品名]` |
+| Supplier / Factory / Manufacturer Keyword | 供应商/工厂/制造商词 | `[产品名] manufacturer` / `[产品名] factory china` |
+| Custom / OEM / ODM Keyword | 定制/OEM/ODM 词 | `custom [产品名] oem` / `[产品名] odm supplier` |
+| Specification Keyword | 规格参数词 | `[规格参数] [产品名]` / `[产品名] [容量/功率/尺寸]` |
+| Application Keyword | 应用场景词 | `[产品名] for [使用场景]` |
+| Industry Keyword | 行业词 | `[行业名] [产品类别]` |
+| Industrial Keyword | 工业通用词 | `heavy duty [产品名]` / `industrial [产品名]` |
+| Problem Solving Keyword | 问题解决词 | `how to [动词] [产品名]` / `[产品名] troubleshoot` |
+| Certification Keyword | 认证词 | `ce certified [产品名]` / `[产品名] iso standard` |
+| Brand Keyword | 品牌词 | `[品牌名] [产品名]` |
+| Competitor Keyword | 竞品词 | `[产品A] vs [产品B]` / `[产品名] alternative` |
+| Long Tail Keyword | 长尾词 | `[规格] [产品名] [意图词] [地区]`（4词以上） |
+| Low Intent / Negative Keyword | 低意图/负向词 | `used [产品名]` / `[产品名] rental` / `[产品名] diy` |
 
 ---
 
